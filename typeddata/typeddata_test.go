@@ -132,3 +132,27 @@ func TestEncode_UInt64_Max(t *testing.T) {
 		t.Fatalf("round-trip mismatch: got %d, want %d", got, v)
 	}
 }
+
+// Regression test for issue #10: negative int32 sign-extends to ~MaxUint64
+// when widened to uint64, so it also needs the full 10-byte varint range.
+func TestEncode_Int32_Negative(t *testing.T) {
+	v := int32(-1)
+	buf, n, err := Encode(v, make([]byte, 0))
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if n != len(buf) {
+		t.Fatalf("n (%d) does not match len(buf) (%d)", n, len(buf))
+	}
+	decoded, _, err := Decode(buf)
+	if err != nil {
+		t.Fatalf("decode error: %v", err)
+	}
+	got, ok := decoded.(int32)
+	if !ok {
+		t.Fatalf("decoded type = %T, want int32", decoded)
+	}
+	if got != v {
+		t.Fatalf("round-trip mismatch: got %d, want %d", got, v)
+	}
+}
