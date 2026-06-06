@@ -58,42 +58,42 @@ func Encode(data interface{}, buf []byte) ([]byte, int, error) {
 
 	case int32:
 		buf = append(buf, TypeInt32)
-		b := make([]byte, 8)
+		b := make([]byte, 10)
 		i := varint.PutUvarint(b, uint64(v))
 		buf = append(buf, b[:i]...)
 		return buf, i + 1, nil
 
 	case uint32:
 		buf = append(buf, TypeUInt32)
-		b := make([]byte, 8)
+		b := make([]byte, 10)
 		i := varint.PutUvarint(b, uint64(v))
 		buf = append(buf, b[:i]...)
 		return buf, i + 1, nil
 
 	case int:
 		buf = append(buf, TypeInt64)
-		b := make([]byte, 8)
+		b := make([]byte, 10)
 		i := varint.PutUvarint(b, uint64(v))
 		buf = append(buf, b[:i]...)
 		return buf, i + 1, nil
 
 	case int64:
 		buf = append(buf, TypeInt64)
-		b := make([]byte, 8)
+		b := make([]byte, 10)
 		i := varint.PutUvarint(b, uint64(v))
 		buf = append(buf, b[:i]...)
 		return buf, i + 1, nil
 
 	case uint:
 		buf = append(buf, TypeUInt64)
-		b := make([]byte, 8)
+		b := make([]byte, 10)
 		i := varint.PutUvarint(b, uint64(v))
 		buf = append(buf, b[:i]...)
 		return buf, i + 1, nil
 
 	case uint64:
 		buf = append(buf, TypeUInt64)
-		b := make([]byte, 8)
+		b := make([]byte, 10)
 		i := varint.PutUvarint(b, uint64(v))
 		buf = append(buf, b[:i]...)
 		return buf, i + 1, nil
@@ -101,7 +101,7 @@ func Encode(data interface{}, buf []byte) ([]byte, int, error) {
 	case string:
 		n = 1
 		buf = append(buf, TypeString)
-		b := make([]byte, 8)
+		b := make([]byte, 10)
 		i := varint.PutUvarint(b, uint64(len(v)))
 		n += i
 		n += len(v)
@@ -112,7 +112,7 @@ func Encode(data interface{}, buf []byte) ([]byte, int, error) {
 	case []byte:
 		n = 1
 		buf = append(buf, TypeBinary)
-		b := make([]byte, 8)
+		b := make([]byte, 10)
 		i := varint.PutUvarint(b, uint64(len(v)))
 		n += i
 		n += len(v)
