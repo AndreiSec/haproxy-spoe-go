@@ -4,9 +4,9 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/negasus/haproxy-spoe-go/action"
-	"github.com/negasus/haproxy-spoe-go/message"
-	"github.com/negasus/haproxy-spoe-go/payload/kv"
+	"github.com/AndreiSec/haproxy-spoe-go/action"
+	"github.com/AndreiSec/haproxy-spoe-go/message"
+	"github.com/AndreiSec/haproxy-spoe-go/payload/kv"
 )
 
 type Type byte

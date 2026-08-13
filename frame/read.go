@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/negasus/haproxy-spoe-go/typeddata"
-	"github.com/negasus/haproxy-spoe-go/varint"
+	"github.com/AndreiSec/haproxy-spoe-go/typeddata"
+	"github.com/AndreiSec/haproxy-spoe-go/varint"
 )
 
 // minReadBuf is the smallest payload buffer a frame keeps around. Rounding small

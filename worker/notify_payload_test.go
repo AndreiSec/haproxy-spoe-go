@@ -7,11 +7,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/negasus/haproxy-spoe-go/action"
-	"github.com/negasus/haproxy-spoe-go/frame"
-	"github.com/negasus/haproxy-spoe-go/logger"
-	"github.com/negasus/haproxy-spoe-go/request"
-	"github.com/negasus/haproxy-spoe-go/varint"
+	"github.com/AndreiSec/haproxy-spoe-go/action"
+	"github.com/AndreiSec/haproxy-spoe-go/frame"
+	"github.com/AndreiSec/haproxy-spoe-go/logger"
+	"github.com/AndreiSec/haproxy-spoe-go/request"
+	"github.com/AndreiSec/haproxy-spoe-go/varint"
 )
 
 // notifyFrame builds a Notify frame with one message named "get-ip-reputation"

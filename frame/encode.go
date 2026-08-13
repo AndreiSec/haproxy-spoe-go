@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/negasus/haproxy-spoe-go/varint"
+	"github.com/AndreiSec/haproxy-spoe-go/varint"
 )
 
 // Encode writes the frame, length prefix included, to dest in a single Write and

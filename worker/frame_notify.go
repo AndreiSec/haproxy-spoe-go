@@ -3,8 +3,8 @@ package worker
 import (
 	"fmt"
 
-	"github.com/negasus/haproxy-spoe-go/frame"
-	"github.com/negasus/haproxy-spoe-go/request"
+	"github.com/AndreiSec/haproxy-spoe-go/frame"
+	"github.com/AndreiSec/haproxy-spoe-go/request"
 )
 
 func (w *worker) processNotifyFrame(f *frame.Frame) {

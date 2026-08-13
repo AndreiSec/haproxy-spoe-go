@@ -3,7 +3,7 @@ package kv
 import (
 	"testing"
 
-	"github.com/negasus/haproxy-spoe-go/typeddata"
+	"github.com/AndreiSec/haproxy-spoe-go/typeddata"
 )
 
 // helloPayload is a KV payload with two string items

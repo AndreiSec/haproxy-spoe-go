@@ -3,8 +3,8 @@ package action
 import (
 	"fmt"
 
-	"github.com/negasus/haproxy-spoe-go/typeddata"
-	"github.com/negasus/haproxy-spoe-go/varint"
+	"github.com/AndreiSec/haproxy-spoe-go/typeddata"
+	"github.com/AndreiSec/haproxy-spoe-go/varint"
 )
 
 // Marshal appends the wire representation of the action to buf and returns the

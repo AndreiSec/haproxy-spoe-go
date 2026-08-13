@@ -5,8 +5,8 @@ import (
 	"io"
 	"testing"
 
-	"github.com/negasus/haproxy-spoe-go/action"
-	"github.com/negasus/haproxy-spoe-go/varint"
+	"github.com/AndreiSec/haproxy-spoe-go/action"
+	"github.com/AndreiSec/haproxy-spoe-go/varint"
 )
 
 // repeatReader serves the same frame bytes over and over without allocating,

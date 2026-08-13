@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/negasus/haproxy-spoe-go/internal/intern"
-	"github.com/negasus/haproxy-spoe-go/typeddata"
-	"github.com/negasus/haproxy-spoe-go/varint"
+	"github.com/AndreiSec/haproxy-spoe-go/internal/intern"
+	"github.com/AndreiSec/haproxy-spoe-go/typeddata"
+	"github.com/AndreiSec/haproxy-spoe-go/varint"
 )
 
 const (

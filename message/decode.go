@@ -3,9 +3,9 @@ package message
 import (
 	"fmt"
 
-	"github.com/negasus/haproxy-spoe-go/internal/intern"
-	"github.com/negasus/haproxy-spoe-go/typeddata"
-	"github.com/negasus/haproxy-spoe-go/varint"
+	"github.com/AndreiSec/haproxy-spoe-go/internal/intern"
+	"github.com/AndreiSec/haproxy-spoe-go/typeddata"
+	"github.com/AndreiSec/haproxy-spoe-go/varint"
 )
 
 // Decode reads messages from buf until it is consumed. Decoded values do not

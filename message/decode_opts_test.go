@@ -3,7 +3,7 @@ package message
 import (
 	"testing"
 
-	"github.com/negasus/haproxy-spoe-go/typeddata"
+	"github.com/AndreiSec/haproxy-spoe-go/typeddata"
 )
 
 // notifyPayload holds one message named "check" with a single string argument
