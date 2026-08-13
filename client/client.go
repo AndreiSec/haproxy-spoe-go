@@ -2,7 +2,6 @@ package client
 
 import (
 	"bufio"
-	"bytes"
 	"fmt"
 	"io"
 	"net"
@@ -55,17 +54,8 @@ func (c *Client) Init() error {
 }
 
 func (c *Client) send(f *frame.Frame) error {
-	buf := bytes.NewBuffer(make([]byte, 0))
-	n, err := f.Encode(buf)
-	if err != nil {
+	if _, err := f.Encode(c.conn); err != nil {
 		return err
-	}
-	n, err = c.conn.Write(buf.Bytes())
-	if err != nil {
-		return err
-	}
-	if n != buf.Len() {
-		return fmt.Errorf("size mismatch")
 	}
 	return nil
 }

@@ -185,3 +185,32 @@ Returns value by name. If key doesn't exist, last returned value will be set to 
 ```
 ipValue, ok := message.KV.Get("ip")
 ```
+
+## Value lifetimes
+
+Frames are pooled and each frame reuses its read buffer, so values decoded from a
+request are only valid while the handler runs. Binary (`[]byte`) and IP
+(`net.IP`) values point straight into that buffer: copy them if you need to keep
+them after the handler returns.
+
+`string` values are copied by default, so they are safe to retain.
+
+## Reducing allocations further
+
+```go
+frame.SetNoCopyStrings(true)
+```
+
+makes `string` values point into the frame's read buffer instead of being copied,
+which removes the largest remaining allocation on the decode path. In exchange,
+strings follow the same lifetime rule as binary and IP values: valid until the
+handler returns, so anything stored, cached, or logged asynchronously has to be
+copied first. Call it during startup, before serving.
+
+For a Notify frame carrying a 4 KiB string argument, the decode path allocates
+4118 B in 2 allocations by default, and 16 B in 1 allocation with
+`SetNoCopyStrings(true)`.
+
+`frame.MaxFrameLen` caps the frame length the reader accepts, and therefore the
+largest buffer one read can allocate. It defaults to 16 MiB, far above HAProxy's
+negotiated `max-frame-size`.
